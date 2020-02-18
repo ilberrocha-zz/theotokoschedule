@@ -1,0 +1,45 @@
+<mvc:View
+   controllerName="sap.ui.demo.walkthrough.controller.ContactsList"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <List
+      id="contactsList"
+      headerText="{i18n>contactsListTitle}"
+      class="sapUiResponsiveMargin"
+      width="auto"
+      items="{
+         path : 'contacts>/Contacts',
+			sorter : {
+				path : 'ShipperName',
+				group : true
+			}
+      }">
+            <headerToolbar>
+         <Toolbar>
+            <Title text="{i18n>contactsListTitle}"/>
+            <ToolbarSpacer/>
+            <SearchField width="50%" search=".onFilterContacts"/>
+         </Toolbar>
+      </headerToolbar>
+      <items>
+         <ObjectListItem
+            title="{contacts>Name} | {contacts>Email}"
+            number="{
+			parts: [{path: 'contacts>Phone'}, {path: 'view>/currency'}],
+			type: 'sap.ui.model.type.Currency',
+			formatOptions: {
+				showMeasure: false
+			}
+		}"
+		numberUnit="{view>/currency}"
+      numberState="{= ${contacts>Phone } > 50 ? 'Error' : 'Success' }">
+				<firstStatus>
+					<ObjectStatus text="{
+						path: 'contacts>Status',
+						formatter: 'Confirmed number'
+					}"/>
+				</firstStatus>
+			</ObjectListItem>
+      </items>
+   </List>
+</mvc:View>

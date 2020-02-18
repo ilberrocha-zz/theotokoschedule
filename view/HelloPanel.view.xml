@@ -1,0 +1,41 @@
+<mvc:View
+   controllerName="sap.ui.demo.walkthrough.controller.HelloPanel"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc">
+   <Panel
+      headerText="{i18n>helloPanelSubTitle}"
+      class="sapUiResponsiveMargin"
+      width="auto" >
+      <content>
+         <Input
+            description="NAME"
+            value=""
+            valueLiveUpdate="true"
+            width="80%"/>
+         <Input
+            value=""
+            description="EMAIL"
+            valueLiveUpdate="true"
+            width="80%"/>
+         <Input
+            value=""
+            description="PHONE"
+            valueLiveUpdate="true"
+            width="80%"/>
+         <Input
+            value=""
+            description="CONFIRM PHONE"
+            valueLiveUpdate="true"
+            width="80%"/>
+         <Button
+            id="helloDialogButton"
+            icon="sap-icon://add-contact"
+            text="{i18n>openDialogButtonText}"
+            press=".onOpenDialog"
+            class="sapUiSmallMarginEnd"/>
+         <FormattedText
+            htmlText=" "
+            class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText"/>
+      </content>
+   </Panel>
+</mvc:View>
